@@ -222,13 +222,13 @@ int main()
         			GPIO_SetValue(0, 0x00200000);
         		}
         		else if(ch == '2'){
-        			LPC_GPIO0->FIOSET |= 1<<22;
+        			GPIO_SetValue(0, 0x00400000);
         		}
         		else if(ch == '3'){
-        			LPC_GPIO0->FIOCLR |= 1<<21;
+        			GPIO_ClearValue(0, 0x00200000);
         		}
         		else if(ch == '4'){
-        			LPC_GPIO0->FIOCLR |= 1<<22;
+        			GPIO_ClearValue(0, 0x00400000);
         		}
         		ch = '0';
     }

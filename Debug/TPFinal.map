@@ -242,8 +242,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .text.GPIO_SetDir
                 0x0000000000000000       0x18 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .text.GPIO_ClearValue
-                0x0000000000000000        0xc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .text.GPIO_ReadValue
                 0x0000000000000000        0xc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .text.GPIO_IntCmd
@@ -478,7 +476,7 @@ END GROUP
                 0x0000000020084000                __top_RamAHB32 = 0x20084000
                 0x0000000020084000                __top_RAM2 = 0x20084000
 
-.text           0x0000000000000000     0x1414
+.text           0x0000000000000000     0x1418
  FILL mask 0xff
                 0x0000000000000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -487,10 +485,10 @@ END GROUP
                 0x00000000000000cc                . = ALIGN (0x4)
                 0x00000000000000cc                __section_table_start = .
                 0x00000000000000cc                __data_section_table = .
-                0x00000000000000cc        0x4 LONG 0x1414 LOADADDR (.data)
+                0x00000000000000cc        0x4 LONG 0x1418 LOADADDR (.data)
                 0x00000000000000d0        0x4 LONG 0x10000000 ADDR (.data)
                 0x00000000000000d4        0x4 LONG 0x1798 SIZEOF (.data)
-                0x00000000000000d8        0x4 LONG 0x1414 LOADADDR (.data_RAM2)
+                0x00000000000000d8        0x4 LONG 0x1418 LOADADDR (.data_RAM2)
                 0x00000000000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x00000000000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x00000000000000e4                __data_section_table_end = .
@@ -582,150 +580,153 @@ END GROUP
  .text.uart_RxChar
                 0x0000000000000588       0x2c ./src/TPFinal.o
                 0x0000000000000588                uart_RxChar
- .text.main     0x00000000000005b4       0xe0 ./src/TPFinal.o
+ .text.main     0x00000000000005b4       0xd8 ./src/TPFinal.o
                 0x00000000000005b4                main
  .text.TIMER0_IRQHandler
-                0x0000000000000694       0x38 ./src/TPFinal.o
-                0x0000000000000694                TIMER0_IRQHandler
+                0x000000000000068c       0x38 ./src/TPFinal.o
+                0x000000000000068c                TIMER0_IRQHandler
  .text.SystemInit
-                0x00000000000006cc       0xd8 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x00000000000006cc                SystemInit
+                0x00000000000006c4       0xd8 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000000000006c4                SystemInit
  .text.ADC_Init
-                0x00000000000007a4       0x58 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x00000000000007a4                ADC_Init
+                0x000000000000079c       0x58 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x000000000000079c                ADC_Init
  .text.ADC_StartCmd
-                0x00000000000007fc       0x3c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x00000000000007fc                ADC_StartCmd
+                0x00000000000007f4       0x3c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x00000000000007f4                ADC_StartCmd
  .text.ADC_ChannelCmd
-                0x0000000000000838       0x34 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x0000000000000838                ADC_ChannelCmd
+                0x0000000000000830       0x34 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000830                ADC_ChannelCmd
  .text.ADC_ChannelGetData
-                0x000000000000086c       0x28 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
-                0x000000000000086c                ADC_ChannelGetData
+                0x0000000000000864       0x28 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000000864                ADC_ChannelGetData
  .text.CLKPWR_SetPCLKDiv
-                0x0000000000000894       0x4c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000894                CLKPWR_SetPCLKDiv
+                0x000000000000088c       0x4c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x000000000000088c                CLKPWR_SetPCLKDiv
  .text.CLKPWR_GetPCLKSEL
-                0x00000000000008e0       0x20 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x00000000000008e0                CLKPWR_GetPCLKSEL
+                0x00000000000008d8       0x20 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x00000000000008d8                CLKPWR_GetPCLKSEL
  .text.CLKPWR_GetPCLK
-                0x0000000000000900       0x20 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000900                CLKPWR_GetPCLK
+                0x00000000000008f8       0x20 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x00000000000008f8                CLKPWR_GetPCLK
  .text.CLKPWR_ConfigPPWR
-                0x0000000000000920       0x34 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000920                CLKPWR_ConfigPPWR
+                0x0000000000000918       0x34 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000918                CLKPWR_ConfigPPWR
  .text.DAC_Init
-                0x0000000000000954       0x24 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x0000000000000954                DAC_Init
+                0x000000000000094c       0x24 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x000000000000094c                DAC_Init
  .text.DAC_ConfigDAConverterControl
-                0x0000000000000978       0x4c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x0000000000000978                DAC_ConfigDAConverterControl
+                0x0000000000000970       0x4c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x0000000000000970                DAC_ConfigDAConverterControl
  .text.DAC_SetDMATimeOut
-                0x00000000000009c4       0x24 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x00000000000009c4                DAC_SetDMATimeOut
+                0x00000000000009bc       0x24 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x00000000000009bc                DAC_SetDMATimeOut
  .text.GPDMA_Init
-                0x00000000000009e8       0x38 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x00000000000009e8                GPDMA_Init
+                0x00000000000009e0       0x38 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000009e0                GPDMA_Init
  .text.GPDMA_Setup
-                0x0000000000000a20      0x1d8 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000a20                GPDMA_Setup
+                0x0000000000000a18      0x1d8 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000a18                GPDMA_Setup
  .text.GPDMA_ChannelCmd
-                0x0000000000000bf8       0x1c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000bf8                GPDMA_ChannelCmd
+                0x0000000000000bf0       0x1c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000bf0                GPDMA_ChannelCmd
  .text.GPIO_GetPointer
-                0x0000000000000c14       0x12 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x0000000000000c0c       0x12 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .text.GPIO_SetValue
-                0x0000000000000c26        0xc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
-                0x0000000000000c26                GPIO_SetValue
+                0x0000000000000c1e        0xc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x0000000000000c1e                GPIO_SetValue
+ .text.GPIO_ClearValue
+                0x0000000000000c2a        0xc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x0000000000000c2a                GPIO_ClearValue
  .text.check_failed
-                0x0000000000000c32        0x2 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
-                0x0000000000000c32                check_failed
+                0x0000000000000c36        0x2 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000c36                check_failed
  .text.PINSEL_ConfigPin
-                0x0000000000000c34       0x7c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
-                0x0000000000000c34                PINSEL_ConfigPin
+                0x0000000000000c38       0x7c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+                0x0000000000000c38                PINSEL_ConfigPin
  .text.TIM_ClearIntPending
-                0x0000000000000cb0       0x4c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000cb0                TIM_ClearIntPending
+                0x0000000000000cb4       0x4c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000cb4                TIM_ClearIntPending
  .text.TIM_Init
-                0x0000000000000cfc      0x15c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000cfc                TIM_Init
- .text.TIM_Cmd  0x0000000000000e58       0x48 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000e58                TIM_Cmd
+                0x0000000000000d00      0x15c /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000d00                TIM_Init
+ .text.TIM_Cmd  0x0000000000000e5c       0x48 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000e5c                TIM_Cmd
  .text.TIM_ConfigMatch
-                0x0000000000000ea0       0xcc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000000ea0                TIM_ConfigMatch
+                0x0000000000000ea4       0xcc /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000000ea4                TIM_ConfigMatch
  .text.__weak_main
-                0x0000000000000f6c        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
-                0x0000000000000f6c                __main
-                0x0000000000000f6c                __weak_main
+                0x0000000000000f70        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
+                0x0000000000000f70                __main
+                0x0000000000000f70                __weak_main
  .text.__aeabi_division_uldivmod
-                0x0000000000000f70      0x174 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_64.o)
-                0x0000000000000f70                __aeabi_uldivmod
-                0x0000000000000f74                __bhs_ldivmod1
+                0x0000000000000f74      0x174 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_64.o)
+                0x0000000000000f74                __aeabi_uldivmod
+                0x0000000000000f78                __bhs_ldivmod1
  .text.__aeabi_division_idiv0
-                0x00000000000010e4        0x2 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_idiv0.o)
-                0x00000000000010e4                __aeabi_idiv0
- *fill*         0x00000000000010e6        0x2 ff
+                0x00000000000010e8        0x2 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(division_idiv0.o)
+                0x00000000000010e8                __aeabi_idiv0
+ *fill*         0x00000000000010ea        0x2 ff
  .text.__aeabi_fmul
-                0x00000000000010e8       0xac /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
-                0x00000000000010e8                __aeabi_fmul
+                0x00000000000010ec       0xac /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
+                0x00000000000010ec                __aeabi_fmul
  .text.__aeabi_fsub
-                0x0000000000001194       0xe4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
-                0x0000000000001194                __aeabi_fsub
+                0x0000000000001198       0xe4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
+                0x0000000000001198                __aeabi_fsub
  .text.__aeabi_fadd
-                0x0000000000001278       0xb4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
-                0x0000000000001278                __aeabi_fadd
+                0x000000000000127c       0xb4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
+                0x000000000000127c                __aeabi_fadd
  .text.__aeabi_f2uiz
-                0x000000000000132c       0x28 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
-                0x000000000000132c                __aeabi_f2uiz
+                0x0000000000001330       0x28 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(float.o)
+                0x0000000000001330                __aeabi_f2uiz
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.ADC_Init.str1.1
-                0x0000000000001354        0xe /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
+                0x0000000000001358        0xe /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_adc.o)
  .rodata.CSWTCH.5
-                0x0000000000001362        0x4 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000001366        0x4 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
  .rodata.DAC_Init.str1.1
-                0x0000000000001366        0xe /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x000000000000136a        0xe /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
  .rodata.GPDMA_LUTPerAddr
-                0x0000000000001374       0x60 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000001374                GPDMA_LUTPerAddr
+                0x0000000000001378       0x60 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000001378                GPDMA_LUTPerAddr
  .rodata.GPDMA_LUTPerBurst
-                0x00000000000013d4       0x18 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x00000000000013d4                GPDMA_LUTPerBurst
+                0x00000000000013d8       0x18 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000013d8                GPDMA_LUTPerBurst
  .rodata.GPDMA_LUTPerWid
-                0x00000000000013ec       0x18 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x00000000000013ec                GPDMA_LUTPerWid
+                0x00000000000013f0       0x18 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000013f0                GPDMA_LUTPerWid
  .rodata.TIM_GetIntStatus.str1.1
-                0x0000000000001404       0x10 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
-                0x0000000000001414                . = ALIGN (0x4)
+                0x0000000000001408       0x10 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_timer.o)
+                0x0000000000001418                . = ALIGN (0x4)
 
-.glue_7         0x0000000000001414        0x0
- .glue_7        0x0000000000001414        0x0 linker stubs
+.glue_7         0x0000000000001418        0x0
+ .glue_7        0x0000000000001418        0x0 linker stubs
 
-.glue_7t        0x0000000000001414        0x0
- .glue_7t       0x0000000000001414        0x0 linker stubs
+.glue_7t        0x0000000000001418        0x0
+ .glue_7t       0x0000000000001418        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000001414        0x0
- .vfp11_veneer  0x0000000000001414        0x0 linker stubs
+.vfp11_veneer   0x0000000000001418        0x0
+ .vfp11_veneer  0x0000000000001418        0x0 linker stubs
 
-.v4_bx          0x0000000000001414        0x0
- .v4_bx         0x0000000000001414        0x0 linker stubs
+.v4_bx          0x0000000000001418        0x0
+ .v4_bx         0x0000000000001418        0x0 linker stubs
 
-.iplt           0x0000000000001414        0x0
- .iplt          0x0000000000001414        0x0 ./src/TPFinal.o
+.iplt           0x0000000000001418        0x0
+ .iplt          0x0000000000001418        0x0 ./src/TPFinal.o
 
-.rel.dyn        0x0000000000001414        0x0
- .rel.iplt      0x0000000000001414        0x0 ./src/TPFinal.o
+.rel.dyn        0x0000000000001418        0x0
+ .rel.iplt      0x0000000000001418        0x0 ./src/TPFinal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x0000000000001414        0x0
-                0x0000000000001414                __exidx_start = .
+.ARM.exidx      0x0000000000001418        0x0
+                0x0000000000001418                __exidx_start = .
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000001414                __exidx_end = .
-                0x0000000000001414                _etext = .
+                0x0000000000001418                __exidx_end = .
+                0x0000000000001418                _etext = .
 
-.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000001414
+.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000001418
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
                 [!provide]                        PROVIDE (__start_data_RamAHB32 = .)
@@ -746,7 +747,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000     0x1798 load address 0x0000000000001414
+.data           0x0000000010000000     0x1798 load address 0x0000000000001418
  FILL mask 0xff
                 0x0000000010000000                _data = .
                 [!provide]                        PROVIDE (__start_data_RAM = .)
@@ -771,7 +772,7 @@ END GROUP
                 [!provide]                        PROVIDE (__end_data_RAM = .)
                 [!provide]                        PROVIDE (__end_data_RamLoc32 = .)
 
-.igot.plt       0x0000000010001798        0x0 load address 0x0000000000002bac
+.igot.plt       0x0000000010001798        0x0 load address 0x0000000000002bb0
  .igot.plt      0x0000000010001798        0x0 ./src/TPFinal.o
 
 .bss_RAM2       0x000000002007c000        0x0
@@ -826,8 +827,8 @@ END GROUP
                 0x0000000010008000                PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 0xffffffffefff74c6                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
                 0x0000000000000000                _image_start = LOADADDR (.text)
-                0x0000000000002bac                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000000000002bac                _image_size = (_image_end - _image_start)
+                0x0000000000002bb0                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000000000002bb0                _image_size = (_image_end - _image_start)
 OUTPUT(TPFinal.axf elf32-littlearm)
 LOAD linker stubs
 
@@ -1141,6 +1142,7 @@ GPDMA_Setup                                       /home/marconia/Universidad/Ele
                                                   ./src/TPFinal.o
 GPIO_ClearInt                                     /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 GPIO_ClearValue                                   /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                                                  ./src/TPFinal.o
 GPIO_GetIntStatus                                 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 GPIO_IntCmd                                       /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 GPIO_ReadValue                                    /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
