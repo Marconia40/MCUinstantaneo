@@ -1,11 +1,11 @@
 /home/marconia/Universidad/Electronica Digital 3/ConDrivers/CMSISv2p00_LPC17xx/inc/core_cm3.h:928:22:NVIC_EnableIRQ	16	static
-../src/TPFinal.c:30:6:confADC	8	static
-../src/TPFinal.c:39:6:confPIN	16	static
-../src/TPFinal.c:63:6:confTIMER	32	static
-../src/TPFinal.c:83:6:confDMA	64	static
-../src/TPFinal.c:119:6:confDAC	16	static
-../src/TPFinal.c:134:6:confGPIO	4	static
-../src/TPFinal.c:139:6:uart_init	32	static
-../src/TPFinal.c:189:6:uart_RxChar	16	static
-../src/TPFinal.c:197:5:main	16	static
-../src/TPFinal.c:237:6:TIMER0_IRQHandler	8	static
+../src/TPFinal.c:32:6:confADC	8	static
+../src/TPFinal.c:41:6:confPIN	16	static
+../src/TPFinal.c:65:6:confTIMER	32	static
+../src/TPFinal.c:85:6:confDMA	64	static
+../src/TPFinal.c:121:6:confDAC	16	static
+../src/TPFinal.c:136:6:confGPIO	4	static
+../src/TPFinal.c:141:6:uart_init	32	static
+../src/TPFinal.c:191:6:uart_RxChar	16	static
+../src/TPFinal.c:199:5:main	16	static
+../src/TPFinal.c:235:6:TIMER0_IRQHandler	8	static

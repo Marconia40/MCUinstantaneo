@@ -8,9 +8,9 @@
 #include "lpc17xx_timer.h"
 #include "tono_alarma.h"
 
-#define DMA_SIZE 1500
-#define NUM_SINE_SAMPLE 1500
-#define SINE_FREQ_IN_HZ 220
+#define DMA_SIZE 471888
+#define NUM_SINE_SAMPLE 471888
+#define SINE_FREQ_IN_HZ 16000
 #define PCLK_DAC_IN_MHZ 25	//CCLK divided by 4
 
 
@@ -26,6 +26,8 @@
 uint32_t tono[NUM_SINE_SAMPLE];
 uint16_t tempMed = 0;
 uint32_t temperatura;
+
+
 
 void confADC(){
 	ADC_Init(LPC_ADC, 200000); //ADC a frecuencia maxima
@@ -205,10 +207,6 @@ int main()
 
     SystemInit();
     uart_init(9400);  // Initialize the UART0 for 9600 baud rate
-
-    for(int i=0; i<1500; i++){
-    		tono[i] = (muestras[i] + 1) * 511;
-    	}
 
     confDMA();
     GPDMA_ChannelCmd(0, ENABLE);
