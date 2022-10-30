@@ -1,0 +1,135 @@
+#include "LPC17xx.h"
+#include "lpc17xx_adc.h"
+#include "lpc17xx_dac.h"
+#include "lpc17xx_gpdma.h"
+#include "lpc17xx_pinsel.h"
+#include "lpc17xx_timer.h"
+
+void confADC(){
+	ADC_Init(LPC_ADC, 200000); //ADC a frecuencia maxima
+	//ADC_IntConfig(LPC_ADC, ADC_ADGINTEN, DISABLE); // interrupciones individuales de los canales
+	//ADC_IntConfig(LPC_ADC, ADC_ADINTEN0, ENABLE); // habilito la interrupcion por AD0.0
+	ADC_ChannelCmd(LPC_ADC, ADC_CHANNEL_0, ENABLE); // habilito el canal 0
+	//ADC_BurstCmd(LPC_ADC, ENABLE); // inicio cuando ocurre un match en el MAT0.1
+	//NVIC_EnableIRQ(ADC_IRQn);
+}
+
+void confPIN(){
+	PINSEL_CFG_Type pinCfg;
+	pinCfg.Portnum = PINSEL_PORT_0;	// configuro el Pin 23 del puerto 0
+	pinCfg.Pinnum = PINSEL_PIN_23;
+	pinCfg.Funcnum = PINSEL_FUNC_1;	//Funcion 1 = ADC0.0
+	pinCfg.Pinmode = PINSEL_PINMODE_TRISTATE; // Modo de Tristate ya que es ADC
+	pinCfg.OpenDrain = PINSEL_PINMODE_NORMAL;	// Sin OpenDrain
+	PINSEL_ConfigPin(&pinCfg);
+	PINSEL_CFG_Type pinCfg1;
+	pinCfg1.Portnum = PINSEL_PORT_1;	// configuro el Pin 29 del puerto 1
+	pinCfg1.Pinnum = PINSEL_PIN_29;
+	pinCfg1.Funcnum = PINSEL_FUNC_3;	//Funcion 3 = MAT0.1
+	pinCfg1.Pinmode = PINSEL_PINMODE_TRISTATE; // Modo de Tristate ya que es ADC
+	pinCfg1.OpenDrain = PINSEL_PINMODE_NORMAL;
+	PINSEL_ConfigPin(&pinCfg1);
+}
+
+void confTIMER(){
+	TIM_Cmd(LPC_TIM0, ENABLE);
+
+	TIM_TIMERCFG_Type timerCfg;
+	timerCfg.PrescaleOption = TIM_PRESCALE_USVAL; // Timer cuenta microsegundos
+	timerCfg.PrescaleValue = 200; // Cuenta cada 250 milisegundos (250000 microseg)
+	TIM_Init(LPC_TIM0, TIM_TIMER_MODE, &timerCfg);
+
+	TIM_MATCHCFG_Type matchCfg;
+	matchCfg.MatchChannel = 1;	//canal de match MAT0.1
+	matchCfg.IntOnMatch = ENABLE; // interrumpo con
+	matchCfg.StopOnMatch = DISABLE; // sigo contando despues del match
+	matchCfg.ResetOnMatch = ENABLE; // reseteo el timer para volver a contar
+	matchCfg.ExtMatchOutputType = TIM_EXTMATCH_NOTHING; // no hago nada
+	matchCfg.MatchValue = 1; // cuenta 5 veces un segudno y hace match
+	TIM_ConfigMatch(LPC_TIM0, &matchCfg);
+
+	NVIC_EnableIRQ(TIMER0_IRQn);
+}
+
+uint16_t tempMed = 0;
+uint32_t temperatura;
+
+int main(void) {
+	confPIN();
+	confADC();
+	confTIMER();
+
+    while(1) {
+
+    }
+    return 0 ;
+}
+
+//void ADC_IRQHandler(){
+//		tempMed = ADC_ChannelGetData(LPC_ADC, 0); //guardo el resultado en la variable de temperatura
+//}
+
+void TIMER0_IRQHandler(){
+	ADC_StartCmd(LPC_ADC, ADC_START_NOW);
+	while(!LPC_ADC->ADDR0 >> 31){};
+	tempMed = ADC_ChannelGetData(LPC_ADC, 0); //guardo el resultado en la variable de temperatura
+	TIM_ClearIntPending(LPC_TIM0, TIM_MR1_INT);
+
+}
+/*
+===============================================================================
+ Name        : GPIO.c
+ Author      : $(author)
+ Version     :
+ Copyright   : $(copyright)
+ Description : main definition
+===============================================================================
+
+
+#include "lpc17xx_pinsel.h"
+#include "lpc17xx_gpio.h"
+
+void confPIN(){
+	PINSEL_CFG_Type pinselCfg;
+	pinselCfg.Portnum = 0;
+	pinselCfg.Pinnum = 25;
+	pinselCfg.Funcnum = PINSEL_FUNC_0;
+	pinselCfg.Pinmode = PINSEL_PINMODE_PULLUP;
+	pinselCfg.OpenDrain = PINSEL_PINMODE_NORMAL;
+	PINSEL_ConfigPin(&pinselCfg);
+	pinselCfg.Pinnum = 26;
+	PINSEL_ConfigPin(&pinselCfg);
+	//pinselCfg.Pinmode = 0;
+	pinselCfg.Pinnum = 22;
+	PINSEL_ConfigPin(&pinselCfg);
+}
+
+void confGPIO(){
+	//Habilito interrupciones por GPIO
+	GPIO_SetDir(0, 0x06000000, 0);
+	GPIO_IntCmd(0, 0x06000000, 0);
+	GPIO_SetDir(0, (1<<22), 1);
+	NVIC_EnableIRQ(EINT3_IRQn);
+}
+
+int main(void) {
+	confPIN();
+	confGPIO();
+
+    while(1) {
+
+    }
+    return 0 ;
+}
+
+void EINT3_IRQHandler(){
+	if(GPIO_GetIntStatus(0, 25, 0)){
+			LPC_GPIO0->FIOSET |= (1<<22);
+	} else if (GPIO_GetIntStatus(0, 26, 0)){
+			//GPIO_ClearValue(0, 0x00400000);
+			LPC_GPIO0->FIOCLR |= (1<<22);
+	}
+	GPIO_ClearInt(0, 0x06000000);
+}
+
+*/
