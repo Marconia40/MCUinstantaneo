@@ -8,9 +8,9 @@
 #include "lpc17xx_timer.h"
 #include "tono_alarma.h"
 
-#define DMA_SIZE 471888
-#define NUM_SINE_SAMPLE 471888
-#define SINE_FREQ_IN_HZ 16000
+#define DMA_SIZE 25424
+#define NUM_SINE_SAMPLE 25424
+#define SINE_FREQ_IN_HZ 2000
 #define PCLK_DAC_IN_MHZ 25	//CCLK divided by 4
 
 
@@ -23,10 +23,8 @@
 #define SBIT_RDR           0x00u
 #define SBIT_THRE          0x05u
 
-uint32_t tono[NUM_SINE_SAMPLE];
+uint8_t tono[NUM_SINE_SAMPLE];
 uint16_t tempMed = 0;
-uint32_t temperatura;
-
 
 
 void confADC(){
@@ -89,9 +87,9 @@ void confDMA(){
 	DMA_LLI_Struct.DstAddr = (uint32_t)&(LPC_DAC->DACR);
 	DMA_LLI_Struct.NextLLI = (uint32_t)&DMA_LLI_Struct;
 	DMA_LLI_Struct.Control = DMA_SIZE
-			| (2<<18) //source width 32 bits
-			| (2<<21) //dest. widht 32 bits
-			| (1<<26);//source increment
+			& ~(7<<18) //source width 32 bits
+			& ~(7<<21) //dest. widht 32 bits
+			& (1<<26);//source increment
 	/* GPDMA block section -------------------------
 	 * Initialize GPDMA controller */
 	GPDMA_Init();
@@ -198,17 +196,14 @@ char uart_RxChar()
 
 int main()
 {
-	confGPIO();
 	confPIN();
 	confADC();
 	confTIMER();
 	confDAC();
     char ch;
 
-    SystemInit();
     uart_init(9400);  // Initialize the UART0 for 9600 baud rate
 
-    confDMA();
     GPDMA_ChannelCmd(0, ENABLE);
 
     while(1)
@@ -218,15 +213,23 @@ int main()
 
         if(ch == '1'){
         			GPIO_SetValue(0, 0x00200000);
+
+        			confDMA();
+
         		}
         		else if(ch == '2'){
         			GPIO_SetValue(0, 0x00400000);
+        		    GPDMA_ChannelCmd(0, DISABLE);
         		}
         		else if(ch == '3'){
         			GPIO_ClearValue(0, 0x00200000);
+        		    GPDMA_ChannelCmd(0, DISABLE);
+
         		}
         		else if(ch == '4'){
         			GPIO_ClearValue(0, 0x00400000);
+        		    GPDMA_ChannelCmd(0, DISABLE);
+
         		}
         		ch = '0';
     }

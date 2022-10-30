@@ -1,6 +1,20 @@
 /* D:\Facultad\TPFinal-ED3\MCUinstantaneo\src\Cafe-MasCorto.wav (30/10/2022 17:17:36)
    Posición Inicial(h): 00000000, Posición Final(h): 00020EED, Longitud(h): 00020EEE */
 
+/*
+ * tono_alarma.h
+ *
+ *  Created on: 20 oct. 2022
+ *      Author: emanu
+ *
+*/
+
+
+#ifndef TONO_ALARMA_H_
+#define TONO_ALARMA_H_
+
+#endif /* TONO_ALARMA_H_ */
+
 unsigned char rawData[134894] = {
 	0x52, 0x49, 0x46, 0x46, 0xE6, 0x0E, 0x02, 0x00, 0x57, 0x41, 0x56, 0x45,
 	0x66, 0x6D, 0x74, 0x20, 0x10, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00,
